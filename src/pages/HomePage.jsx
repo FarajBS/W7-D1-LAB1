@@ -18,6 +18,18 @@ export default function HomePage() {
         })
     }
 
+    function searchFun() {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const ul = document.getElementById('contentList');
+        const li = ul.getElementsByTagName('li');
+
+        for (let i = 0; i < li.length; i++) {
+            const textValue = li[i].textContent || li[i].innerText;
+            li[i].style.display = textValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+        }
+    }
+
     const del = (id) => {
         alert("Are you Sure");
         axios.delete(`https://66f16df8415379191550df7c.mockapi.io/data/${id}`)
@@ -25,6 +37,8 @@ export default function HomePage() {
             setCharacter(character.filter(characters => characters.id !== id))
         })
     }
+
+    
 
     useEffect(() => {
         getInformation();
@@ -41,7 +55,7 @@ export default function HomePage() {
             </div>
 
             <div className="indicator">
-                <button className="btn join-item">Search</button>
+                <button onClick={searchFun} className="btn join-item">Search</button>
             </div>
             </div>
             <Link to={"/add"}>
@@ -71,6 +85,7 @@ export default function HomePage() {
                                 </div>
                                 <div className="card-actions justify-end">
                                 <button onClick={() => del(element.id)} className="btn btn-primary w-full text-2xl">Delete</button>
+                                <Link to="/update" className="btn btn-primary w-full text-2xl"><button onClick={() => localStorage.setItem("id", element.id)}>Update</button></Link>
                                 </div>
                             </div>
                         </div>

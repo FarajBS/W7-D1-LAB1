@@ -9,6 +9,7 @@ import "./index.css";
 
 import HomePage from "./pages/HomePage";
 import AddPage from "./pages/AddPage";
+import Update from "./pages/Update";
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/add",
     element: <AddPage />,
+  },
+  {
+    path: "/update",
+    element: <Update />,
   },
 ]);
 

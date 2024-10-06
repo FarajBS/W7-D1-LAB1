@@ -1,11 +1,17 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
+
 
 export default function AddPage() {
 
     const [img, setImg] = useState("");
     const [name, setName] = useState("");
     const [gender, setGender] = useState("");
+
+
+    const navigate = useNavigate();
+
 
     const addCar = () => {
         
@@ -17,7 +23,7 @@ export default function AddPage() {
             })
             .then(function () {
                 // console.log(response);
-                window.location.href("/home")
+                navigate("/home");
             })
             .catch(function (error) {
             console.log(error);

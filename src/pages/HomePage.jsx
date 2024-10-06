@@ -19,10 +19,10 @@ export default function HomePage() {
     }
 
     const del = (id) => {
-        // confirm("Are you Sure");
+        alert("Are you Sure");
         axios.delete(`https://66f16df8415379191550df7c.mockapi.io/data/${id}`)
         .then(() => {
-            setCharacter(character.filter(character => character.id !== id))
+            setCharacter(character.filter(characters => characters.id !== id))
         })
     }
 
@@ -70,7 +70,7 @@ export default function HomePage() {
                                     <p className="text-2xl font-bold text-gray-500">origin: <span className="text-black">{element.origin}</span></p>
                                 </div>
                                 <div className="card-actions justify-end">
-                                <button onClick={() => del[element.id]} className="btn btn-primary w-full text-2xl">Delete</button>
+                                <button onClick={() => del(element.id)} className="btn btn-primary w-full text-2xl">Delete</button>
                                 </div>
                             </div>
                         </div>

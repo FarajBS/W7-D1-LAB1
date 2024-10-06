@@ -18,17 +18,8 @@ export default function HomePage() {
         })
     }
 
-    function searchFun() {
-        const input = document.getElementById('searchInput');
-        const filter = input.value.toLowerCase();
-        const ul = document.getElementById('contentList');
-        const li = ul.getElementsByTagName('li');
-
-        for (let i = 0; i < li.length; i++) {
-            const textValue = li[i].textContent || li[i].innerText;
-            li[i].style.display = textValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
-        }
-    }
+  
+    
 
     const del = (id) => {
         alert("Are you Sure");
@@ -55,7 +46,7 @@ export default function HomePage() {
             </div>
 
             <div className="indicator">
-                <button onClick={searchFun} className="btn join-item">Search</button>
+                <button className="btn join-item">Search</button>
             </div>
             </div>
             <Link to={"/add"}>
